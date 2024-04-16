@@ -11,5 +11,6 @@
 logs/
 tmp/
 microservices/python/prj4/env/
+fast_api/todos/env/
 
 # Ignore configuration files with sensitive information

@@ -1,0 +1,15 @@
+# Ignore compiled files
+*.class
+*.jar
+*.war
+
+# Ignore IDE-specific files
+.idea/
+.vscode/
+
+# Ignore logs and temporary files
+logs/
+tmp/
+microservices/python/prj4/env/
+
+# Ignore configuration files with sensitive information

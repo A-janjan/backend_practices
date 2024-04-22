@@ -34,6 +34,8 @@ application routing and logic.
 run server:
 
 (venv)$ uvicorn api:app --port 8000 --reload
+or
+(venv)$ uvicorn api:app --host=0.0.0.0 --port 8000 --reload
 
 execute:
 
@@ -79,3 +81,39 @@ swagger -> http://127.0.0.1:8000/docs
 
 ReDoc -> http://127.0.0.1:8000/redoc
 
+
+==========================
+
+
+Response status codes are grouped into five categories, each denoting a different response:
+• 1XX: Request has been received.
+• 2XX: The request was successful.
+• 3XX: Request redirected.
+• 4XX: There’s an error from the client.
+• 5XX: There’s an error from the server.
+
+
+============================
+
+Errors from requests can result from attempting to access non-existent resources,
+protected pages without sufficient permissions, and even server errors. Errors in FastAPI
+are handled by raising an exception using FastAPI’s HTTPException class.
+
+What Is an HTTP Exception?
+- An HTTP exception is an event that is used to indicate a fault or issue in the
+request flow.
+
+The HTTPException class takes three arguments:
+• status_code: The status code to be returned for this disruption
+• detail: Accompanying message to be sent to the client
+• headers: An optional parameter for responses requiring headers
+
+
+
+=============================
+
+
+we can declare the HTTP status code to override the default status code for
+successful operations by adding the status_code argument to the decorator function:
+
+-> @todo_router.post("/todo", status_code=201)

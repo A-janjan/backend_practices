@@ -13,3 +13,12 @@ class Todo(BaseModel):
             }
         }
 
+
+
+class TodoItem(BaseModel):
+    item: str
+    
+    class Config:
+        schema_extra = {
+            "item": "Read the next chapter of the book"
+        }

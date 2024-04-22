@@ -117,3 +117,97 @@ we can declare the HTTP status code to override the default status code for
 successful operations by adding the status_code argument to the decorator function:
 
 -> @todo_router.post("/todo", status_code=201)
+
+
+=============================
+
+## Templating in FastAPI
+
+Templating is the process of displaying the data gotten from the API in various formats.
+Templates act as a frontend component in web applications.
+
+
+Jinja is a templating engine written in Python designed to help the rendering process of
+API responses. In every templating language, there are variables that get replaced with the
+actual values passed to them when the template is rendered, and there are tags that control
+the logic of the template.
+
+The three common syntax blocks used in the Jinja templating language include
+the following:
+
+• {% … %} – This syntax is used for statements such as control structures.
+
+• {{ todo.item }} – This syntax is used to print out the values of the expressions
+passed to it.
+
+• {# This is a great API book! #} – This syntax is used when writing
+comments and is not displayed on the web page.
+
+
+A filter is separated from the variable by a pipe symbol (|) and may entertain optional
+arguments in parentheses. A filter is defined in this format:
+
+{{ variable | filter_name(*args) }}
+
+
+* If there are no arguments, the definition becomes the following:
+
+{{ variable | filter_name }}
+
+* The default filter variable is used to replace the output of the passed value if it turns out
+to be None:
+
+{{ todo.item | default('This is a default todo item') }}
+This is a default todo item
+
+
+* This filter is used to render raw HTML output:
+{{ "<title>Todo Application</title>" | escape }}
+<title>Todo Application</title>
+
+
+
+* These filters include int and float filters used to convert from one data type to another:
+{{ 3.142 | int }}
+3
+{{ 31 | float }}
+31.0
+
+
+* This filter is used to join elements in a list into a string as in Python:
+{{ ['Packt', 'produces', 'great', 'books!'] | join(' ') }}
+Packt produces great books!
+
+
+* This filter is used to return the length of the object passed. It fulfills the same role as
+len() in Python:
+Todo count: {{ todos | length }}
+Todo count: 4
+
+
+* The usage of if statements in Jinja is similar to their usage in Python. if statements are
+used in the {% %} control blocks. Let’s look at an example:
+{% if todo | length < 5 %}
+You don't have much items on your todo list!
+{% else %}
+You have a busy day it seems!
+{% endif %}
+
+
+
+A macro in Jinja is a function that return an HTML string. The main use case for
+macros is to avoid the repetition of code and instead use a single function call.
+{% macro input(name, value='', type='text', size=20) %}
+<div class="form">
+    <input type="{{ type }}" name="{{ name }}" value="{{ value|escape }}" size="{{ size }}">
+</div>
+{% endmacro %}
+Now, to quickly create an input in your form, the macro is called:
+{{ input('item') }}
+This will return the following:
+<div class="form">
+    <input type="text" name="item" value="" size="20">
+</div>
+
+=========================
+

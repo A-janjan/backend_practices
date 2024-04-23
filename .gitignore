@@ -3,6 +3,7 @@
 *.jar
 *.war
 
+
 # Ignore IDE-specific files
 .idea/
 .vscode/
@@ -15,5 +16,8 @@ fast_api/todos/env/
 fast_api/todos/__pycache__/
 fast_api/planner/env/
 fast_api/planner/__pycache__/
+fast_api/planner/models/__pycache__/
+
 
 # Ignore configuration files with sensitive information
+fast_api/planner/.env

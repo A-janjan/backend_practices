@@ -1,5 +1,10 @@
-# Tips
+# Todo App
 
+## Representation
+![todo_app](https://github.com/A-janjan/backend_practices/assets/62621376/a95f79e1-ed58-4d8f-8d12-6aa35e28afd1)
+
+
+## Tips
 
 Routing is an essential part of building a web application. Routing in FastAPI is flexible
 and hassle-free. Routing is the process of handling HTTP requests sent from a client to

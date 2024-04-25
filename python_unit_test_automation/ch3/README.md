@@ -54,3 +54,53 @@ soon as the first test case fails. Run the following command to initiate
 failsafe mode:
 `$ python3 -m unittest -f test_module7`
 
+
+
+===
+
+**Test discovery** is the process of discovering and executing all tests in the
+project directory and all its subdirectories. The test discovery process
+is automated in unittest and can be invoked using the discover sub-­
+command. It can be invoked with the following command:
+
+`$ python3 -m unittest discover`
+
+
+===
+
+The id() and shortDescription() methods are very useful for
+debugging. id() returns the name of the method and shortDescription()
+returns the description of the method.
+
+===
+
+Many times, you might want to have a method that explicitly fails a test
+when it’s called. In unittest, the fail() method is used for that purpose.
+
+===
+
+unittest provides a mechanism for skipping tests, conditionally or
+unconditionally.
+It uses the following decorators for implementing the skipping
+mechanism:
+
+• unittest.skip(reason): Unconditionally skips the
+decorated test. reason should describe why the test is
+being skipped.
+
+• unittest.skipIf(condition, reason): Skips the
+decorated test if condition is true.
+
+• unittest.skipUnless(condition, reason): Skips the
+decorated test unless condition is true.
+
+• unittest.expectedFailure(): Marks the test as an
+expected failure. If the test fails when it runs, the test is
+not counted as a failure.
+
+===
+
+You learned that assert methods are used to check test conditions. The
+assertRaises() method is used to check if the code block raises the
+exception mentioned in assertRaises(). If the code raises the exception
+then the test passes; otherwise, it fails.

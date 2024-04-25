@@ -2,7 +2,7 @@
 
 
 
-thanks to (https://github.com/BekBrace)[Bek Brace].
+thanks to [Bek Brace](https://github.com/BekBrace).
 
 
 ## App UI

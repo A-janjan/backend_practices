@@ -42,5 +42,15 @@ are method-level fixtures. setUp() and tearDown() methods are executed before an
 
 You can also run a single test case with the following command:
 
-`$ python3 -m unittest -v test_module04.TestClass05.test_case01`
+`$ python3 -m unittest -v test_module4.TestClass05.test_case01`
+
+and The -q option stands for quiet mode. Run the following command to
+demonstrate quiet mode:
+
+`$ python3 -m unittest -q test_module7`
+
+The -f option stands for failsafe. It forcefully stops execution as
+soon as the first test case fails. Run the following command to initiate
+failsafe mode:
+`$ python3 -m unittest -f test_module7`
 

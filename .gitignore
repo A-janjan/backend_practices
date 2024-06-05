@@ -17,6 +17,7 @@ fast_api/todos/__pycache__/
 farmstack/backend/env/
 armstack/backend/__pycache__/
 microservice_apis/2 Basic API Implementation/env/
+bobby_dfr_course/env/
 
 # Ignore configuration files with sensitive information
 fast_api/planner/.env

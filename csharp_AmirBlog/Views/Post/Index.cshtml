@@ -1,0 +1,60 @@
+@model IEnumerable<AmirBlog.Models.Post>
+
+    @{
+     ViewData["Title"] = "فهرست";
+    }
+
+    <div class="row justify-content-md-center">
+
+        @foreach (var item in Model) {
+
+        <div class="col-md-8" >
+            <div class="card mb-4" >
+                @if(item.Picture != null){
+                <img class="card-img-top" src="@item.Picture" alt="تصویر کارت" height="300">
+        }
+                <div class="card-body">
+                    <h2 class="card-title" style="text-align: right;">@Html.DisplayFor(modelItem => item.Title)</h2>
+                    @if(item.Text.Length > 30){
+                    <p class="card-text" style="direction: rtl; text-align:right;">@Html.Raw(@item.Text.Substring(0, 250)) ...</p>
+          }
+                    @if(User.Identity.Name != null){
+                    @if(User.Identity.Name == @item.Author){
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-info">ویرایش</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">حذف</a>
+          }
+          }
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-primary">ادامه مطلب →</a>
+                    <div style="float:right;padding-top:15px;font-weight:bold;">
+                        <i class="fa fa-heart icon-heart"></i>
+                        <span id="lovecount">@item.LoveCount</span>
+                    </div>
+                </div>
+                <div class="card-footer text-muted">
+                   Wrote at @Html.DisplayFor(modelItem => item.PublishedDate) By
+                    <a href="#">@Html.DisplayFor(modelItem => item.Author)</a>
+                    <div style="float:right">
+                        اشتراک در: 
+                        <a href="http://www.facebook.com/sharer.php?u=https://localhost:5001/Post/Details/@item.Id" target="_blank">
+                            فیسبوک
+                        </a>
+                        |
+                        <!-- Google+ -->
+                        <a href="https://plus.google.com/share?url=https://localhost:5001/Post/Details/@item.Id" target="_blank">
+                           گوگل
+                        </a>
+                        |
+                        <!-- LinkedIn -->
+                        <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=https://localhost:5001/Post/Details/@item.Id"
+                           target="_blank">
+                            لینکدین
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+    </div>
+    <a href="/Post/Create/">
+        <div class="fab2"> + </div>
+    </a>

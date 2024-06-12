@@ -1,0 +1,74 @@
+﻿@model AmirBlog.Models.Post
+
+@{
+    ViewData["Title"] = "جزئیات";
+}
+
+<div class="row">
+
+    <div class="col-lg-2"></div>
+    <div class="col-lg-8">
+        <h1 class="mt-4" style="text-align: right;">@Html.DisplayFor(model => model.Title)</h1>
+        <p class="lead">
+            By
+            <a href="#">@Html.DisplayFor(model => model.Author)</a>
+            <div style="float:right;padding-top:15px;font-weight:bold;">
+                <i class="fa fa-heart icon-heart"></i>
+                <span id="lovecount">@Model.LoveCount</span>
+            </div>
+        </p>
+        <hr>
+        <p>Wrote at @Html.DisplayFor(model => model.PublishedDate)</p>
+        <hr>
+        <img class="img-fluid rounded" src="@Model.Picture" alt="">
+        <hr>
+        <p class="lead" style="text-align: right; direction:rtl;">@Html.Raw(@Model.Text)</p>
+        <br>
+        @if(User.Identity.Name != null){
+            if(User.Identity.Name == Model.Author){
+        <a class="btn btn-info" asp-action="Edit" asp-route-id="@Model.Id">ویرایش</a>
+        <form class="form-btn" asp-action="Delete" asp-route-id="@Model.Id">
+            <input type="hidden" asp-for="@Model.Id" />
+            <input type="submit" value="حذف" class="dropdown-item" />
+        </form>
+            }
+            }
+        <a class="btn btn-default" asp-action="Index">بازگشت به لیست</a>
+        <br><br>
+        
+        <center>
+            <a href="http://www.facebook.com/sharer.php?u=https://localhost:5001/Post/Details/@Model.Id" target="_blank">
+                    فیسبوک
+            </a>
+            |
+            <a href="https://plus.google.com/share?url=https://localhost:5001/Post/Details/@Model.Id" target="_blank">
+                گوگل
+            </a>
+            |
+            <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=https://localhost:5001/Post/Details/@Model.Id"
+               target="_blank">
+                لینکدین
+            </a>
+        </center>
+        <br><br><br>
+    </div>
+</div>
+@if (User.Identity.IsAuthenticated)
+    {
+<button onclick="love(@Model.Id)" class="fab"> <i class="fa fa-heart"></i> </button>
+<script>
+    function love(id) {
+        $.ajax({
+            type: "POST",
+            url: "/Post/Count/" + id,
+            data: {},
+            success: function (result) { },
+            error: function (req, status, error) { }
+
+        });
+        var n = document.getElementById("lovecount").innerHTML;
+        n++;
+        document.getElementById("lovecount").innerHTML = n;
+    }
+</script>
+    }

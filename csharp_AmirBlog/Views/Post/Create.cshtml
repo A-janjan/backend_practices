@@ -1,0 +1,55 @@
+﻿@model AmirBlog.Models.Post
+
+@{
+    ViewData["Title"] = "ایجاد";
+}
+
+<br>
+<br>
+<h4 style="text-align:right;">ایجاد پست</h4>
+<hr />
+<div class="row justify-content-md-center" style="text-align: right;">
+    <div class="col-md-8" style="direction:rtl;">
+        <form asp-action="Create" asp-antiforgery="false" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group" style="text-align: left;">
+                <label class="control-label">تصویر:  </label>
+                <input onchange="ValidateSize(this)" id="myfile" name="file" type="file" accept="image/*">
+            </div>
+            <div class="form-group">
+                <label asp-for="Title" class="control-label">عنوان</label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Text" class="control-label">متن</label>
+                <textarea asp-for="Text" rows="10" class="form-control"></textarea>
+                <span asp-validation-for="Text" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="ایجاد" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">بازگشت به لیست</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+<script>
+    function ValidateSize(file) {
+        var fileVal = document.getElementById("myfile").value;
+        if (fileVal != "") {
+            var FileSize = file.files[0].size / 1024 / 1024; // in MB
+            if (FileSize > 1) {
+                alert('حجم فایل بیشتر از ۱ مگابایت است');
+                document.getElementById("myfile").value = "";
+            }
+        }
+    }
+</script>

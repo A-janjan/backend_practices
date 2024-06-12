@@ -1,0 +1,28 @@
+﻿@page
+@model AmirBlog.Areas.Identity.Pages.Account.Manage.IndexModel
+@{
+    ViewData["Title"] = "مدیریت حساب";
+}
+
+<h2 style="text-align: right;">@ViewData["Title"]</h2>
+
+<p style="text-align: right;">اطلاعات حساب کاربری خود را مدیریت کنید</p>
+
+<form method="post" style="text-align: right;">
+    <div class="form-group">
+        <label asp-for="Input.Username">نام کاربری</label>
+        <input asp-for="Input.Username" class="form-control" />
+        <span asp-validation-for="Input.Username" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Input.Email">ایمیل</label>
+        <input asp-for="Input.Email" class="form-control" />
+        <span asp-validation-for="Input.Email" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Input.PhoneNumber">شماره تلفن</label>
+        <input asp-for="Input.PhoneNumber" class="form-control" />
+        <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">ذخیره تغییرات</button>
+</form>

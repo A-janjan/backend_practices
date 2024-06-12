@@ -1,0 +1,170 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+  color: #fff !important;
+}
+
+
+
+footer a:link {
+  color: #fff !important;
+}
+
+.bg-blue {
+  background-color: #029e74 !important;
+}
+
+.btn-default {
+  background-color: #029e74 !important;
+  color: #fff;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
+
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: #029e74;
+  color: #fff !important;
+  white-space: nowrap;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  line-height: 60px;
+  /* Vertically center the text there */
+}
+
+.fab {
+  width: 70px;
+  height: 70px;
+  background-color: #F44336;
+  border-radius: 50%;
+  border: 2px solid white;
+  transition: all 0.1s ease-in-out;
+  font-size: 43px;
+  color: white;
+  text-align: center;
+  padding: 0px;
+  position: fixed;
+  right: 3%;
+  bottom: 3%;
+  z-index: 99999;
+}
+
+.fab:hover {
+  box-shadow: 0 6px 14px 0 #666;
+  transform: scale(1.05);
+}
+
+.fab2 {
+  width: 70px;
+  height: 70px;
+  background-color: #326897;
+  border-radius: 50%;
+  border: 2px solid white;
+  transition: all 0.1s ease-in-out;
+  font-size: 42px;
+  color: white;
+  text-align: center;
+  padding: 0px;
+  position: fixed;
+  right: 3%;
+  bottom: 3%;
+  z-index: 999999;
+}
+
+.fab2:hover {
+  box-shadow: 0 6px 14px 0 #666;
+  transform: scale(1.05);
+}
+
+.btn-logout {
+  color: #000 !important;
+  margin: 0px !important;
+  padding: 0px !important;
+}
+
+.btn-drop {
+  background-color: #029E74;
+  color: #fff !important;
+  border: 0px !important;
+  padding: 0px !important;
+}
+
+.icon-account {
+  font-size: 30px;
+  color: #fff;
+  margin-top: 5px;
+}
+
+.icon-heart {
+  color: #F44336;
+}
+
+.search {
+  border-radius: 15px;
+  padding-left: 2%;
+  height: 35px;
+  margin-right: 10px;
+  border: 0px;
+}
+
+.form-btn {
+  display: inline-block;
+}
+
+.form-btn input {
+  color: #fff !important;
+  background-color: #DC3545;
+  padding: 7px;
+  border-radius: 3px;
+}
+
+.form-btn input:hover {
+  color: #fff !important;
+  background-color: #9B202A;
+  padding: 7px;
+  border-radius: 3px;
+}

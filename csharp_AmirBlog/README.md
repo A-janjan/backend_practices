@@ -1,8 +1,8 @@
 # AmirBlog
 
-This repo consist of customization of [BlogCity](https://github.com/Amine-Smahi/BlogCity).
+This repo consists of customization of [BlogCity](https://github.com/Amine-Smahi/BlogCity).
 
-I did this just for chanllenge. Actually i didn't know anything about C# and ASP.NET or .NET. but just for 36 hours i dived into it by learning and writing this prroject. (it was like Hakathon.)
+I did this just for the challenge. Actually, I didn't know anything about C# and ASP.NET or .NET. but just for 20 hours, I dived into it by learning and writing this project. (it was like a Hackathon.)
 
 
 ---

@@ -1,4 +1,4 @@
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, status
 from pydantic import BaseModel
 from typing import List, Optional
 
@@ -20,6 +20,14 @@ books.extend([
 ])
 
 
+# custom exception class for book not found
+class BookNotFoundException(HTTPException):
+    def __init__(self, book_id=None):
+        detail = f"book with id: {book_id} not found!"
+        super().__init__(status_code=status.HTTP_404_NOT_FOUND, detail=detail)
+
+
+
 # retrieve all books
 @app.get('/books', response_model=List[Book])
 def get_books():
@@ -32,7 +40,7 @@ def get_book(book_id: int):
     for book in books:
         if book.id == book_id:
             return book
-    return HTTPException(status_code=404, detail="Book not found")
+    raise BookNotFoundException(book_id)
 
 
 # post book
@@ -52,7 +60,7 @@ def update_book(book_id: int, book: Book):
             b.author = book.author
             return b
         
-    raise HTTPException(status_code=404, detail="book not found")
+    raise BookNotFoundException(book_id)
 
 # delete book
 @app.delete("/books/{book_id}")
@@ -62,4 +70,4 @@ def delete_book(book_id: int):
     books = [book for book in books if book.id != book_id]
     if initial_length > len(books):
         return {"message": "deleted successfully!"}
-    return HTTPException(status_code=404, detail="book not found")
+    return BookNotFoundException(book_id)
